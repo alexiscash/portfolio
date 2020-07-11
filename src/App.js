@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <P5Sketch />
-      <SpotifyPlayer />
+      {/* <SpotifyPlayer /> */}
     </div>
   );
 }

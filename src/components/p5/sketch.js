@@ -6,17 +6,20 @@ export default function sketch(p) {
   let next = 0;
   let current;
   let previous;
+  let div;
 
   p.setup = function () {
     // p.createCanvas(600, 400);
-    // console.log(p.windowWidth, p.windowHeight);
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    // p.createCanvas(p.windowWidth, p.windowHeight);
+    div = document.querySelector(".p5Content");
+    p.createCanvas(div.clientWidth, div.clientHeight);
+    // console.log(div.clientWidth);
     current = p.createVector(0, 0);
     previous = p.createVector(0, 0);
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    p.resizeCanvas(div.clientWidth, div.clientHeight);
   };
 
   p.draw = function () {
