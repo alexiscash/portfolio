@@ -7,7 +7,9 @@ export default function P5Sketch() {
 
   useEffect(() => {
     new p5(sketch, p5Ref.current);
-  }, []);
+  });
+
+  console.log("hey get out of here you scoundrel!");
 
   return (
     <div className={"p5Container"}>

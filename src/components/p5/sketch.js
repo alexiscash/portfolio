@@ -70,7 +70,6 @@ class Path {
     this.p = p;
     this.particles = [];
     this.hue = this.p.random(0, 100);
-    console.log(this.hue);
   }
 
   add(position, force) {
