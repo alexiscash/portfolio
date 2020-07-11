@@ -7,19 +7,38 @@ export default function sketch(p) {
   let current;
   let previous;
   let div;
+  let offset;
+  let string1;
+  let string2;
+
+  // dumb idk what i was thinking
+  function longer(str1, str2) {
+    if (str1.length > str2.length) return str1;
+    return str2;
+  }
+
+  // also dumb I mean if you're gonna use global variables
+  // why not just make it all one bad function
+  function setOffset() {
+    offset = p.width / 2 - longer(string1, string2).length * 3;
+  }
 
   p.setup = function () {
     // p.createCanvas(600, 400);
     // p.createCanvas(p.windowWidth, p.windowHeight);
     div = document.querySelector(".p5Content");
     p.createCanvas(div.clientWidth, div.clientHeight);
-    // console.log(div.clientWidth);
     current = p.createVector(0, 0);
     previous = p.createVector(0, 0);
+    string1 = "this website is currently under constuction :(";
+    string2 = "try clicking and dragging across the screen";
+    setOffset();
   };
 
   p.windowResized = function () {
     p.resizeCanvas(div.clientWidth, div.clientHeight);
+    setOffset();
+    // console.log(div.clientWidth);
   };
 
   p.draw = function () {
@@ -29,16 +48,8 @@ export default function sketch(p) {
     p.fill(0);
     p.stroke(0);
     p.strokeWeight(0.25);
-    p.text(
-      "this website is currently under constuction :(",
-      p.width / 2,
-      p.height / 2
-    );
-    p.text(
-      "try clicking and dragging across the screen",
-      p.width / 2,
-      p.height / 2 + 50
-    );
+    p.text(string1, offset, p.height / 2);
+    p.text(string2, offset, p.height / 2 + 50);
 
     if (p.millis() > next && painting) {
       current.x = p.mouseX;

@@ -31,9 +31,23 @@ code {
   left: 50%;
   top: 50%;
   width: 50%;
-  /* height: 60%; */
+  height: 60%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-style: ridge;
   border-color: rgb(218, 184, 199);
+}
+
+@media screen and (max-width: 600px) {
+  .p5Content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-style: ridge;
+    border-color: rgb(218, 184, 199);
+  }
 }
