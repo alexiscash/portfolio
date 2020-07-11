@@ -1,11 +1,12 @@
 import React from "react";
 import P5Sketch from "./components/p5/P5Sketch";
-// import P5Wrapper from "react-p5-wrapper";
+import SpotifyPlayer from "./components/spotify/SpotifyPlayer";
 
 function App() {
   return (
     <div>
       <P5Sketch />
+      <SpotifyPlayer />
     </div>
   );
 }

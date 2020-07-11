@@ -8,9 +8,15 @@ export default function sketch(p) {
   let previous;
 
   p.setup = function () {
-    p.createCanvas(600, 400);
+    // p.createCanvas(600, 400);
+    // console.log(p.windowWidth, p.windowHeight);
+    p.createCanvas(p.windowWidth, p.windowHeight);
     current = p.createVector(0, 0);
     previous = p.createVector(0, 0);
+  };
+
+  p.windowResized = function () {
+    p.resizeCanvas(p.windowWidth, p.windowHeight);
   };
 
   p.draw = function () {
@@ -26,7 +32,7 @@ export default function sketch(p) {
       p.height / 2
     );
     p.text(
-      "try clicking and dragging across this rectangle",
+      "try clicking and dragging across the screen",
       p.width / 2,
       p.height / 2 + 50
     );
