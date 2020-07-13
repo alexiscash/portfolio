@@ -1,8 +1,9 @@
 import { token } from "./secrets";
 
 export default class SpotifyWrapper {
-  constructor(token) {
+  constructor(name, token) {
     this.token = token;
+    this.name = name;
     this.connect();
   }
 
@@ -12,13 +13,17 @@ export default class SpotifyWrapper {
     }
   }
 
-  createPlayer() {
-    console.log("connecting to spotify");
+  async getAccessToken(paramsOrSomething) {
+    // send request to server and receive token async
+  }
 
+  createPlayer() {
     window.onSpotifyWebPlaybackSDKReady = () => {
       this.player = new window.Spotify.Player({
-        name: "Super Dope Playback",
+        name: this.name,
         getOAuthToken: (cb) => {
+          // code to get fresh access token
+          // const token = await this.getAccessToken();
           cb(this.token);
         },
       });
@@ -38,9 +43,14 @@ export default class SpotifyWrapper {
       });
 
       // Playback status updates
-      // player.addListener("player_state_changed", (state) => {
-      //   console.log(state);
-      // });
+      this.player.addListener(
+        "player_state_changed",
+        ({ position, duration, track_window: { current_track } }) => {
+          console.log("Currently Playing", current_track);
+          console.log("Position in Song", position);
+          console.log("Duration of Song", duration);
+        }
+      );
 
       // Ready
       this.player.addListener("ready", ({ device_id }) => {

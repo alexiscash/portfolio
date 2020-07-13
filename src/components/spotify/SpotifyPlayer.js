@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SpotifyWrapper from "./spotify";
 import { token } from "./secrets";
 
-const s = new SpotifyWrapper(token);
+const s = new SpotifyWrapper("Super Dope Playback", token);
 
 export default function SpotifyPlayer() {
   const [count, setCount] = useState(0);
