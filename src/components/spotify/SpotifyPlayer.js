@@ -6,6 +6,7 @@ export default function SpotifyPlayer() {
     const player = new window.Spotify.Player({
       name: "Web Playback SDK Quick Start Player",
       getOAuthToken: (cb) => {
+        // code for getting fresh access token
         cb(token);
       },
     });
