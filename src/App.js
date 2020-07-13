@@ -1,12 +1,12 @@
 import React from "react";
-import P5Sketch from "./components/p5/P5Sketch";
-// import SpotifyPlayer from "./components/spotify/SpotifyPlayer";
+// import ConstructionContainer from "./containers/ConstructionContainer";
+import SpotifyPlayer from "./components/spotify/SpotifyPlayer";
 
 function App() {
   return (
     <div>
-      <P5Sketch />
-      {/* <SpotifyPlayer /> */}
+      {/* <ConstructionContainer /> */}
+      <SpotifyPlayer />
     </div>
   );
 }

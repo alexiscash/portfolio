@@ -1,46 +1,28 @@
-import React from "react";
+// import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
+import SpotifyWrapper from "./spotify";
 import { token } from "./secrets";
 
+const s = new SpotifyWrapper(token);
+
 export default function SpotifyPlayer() {
-  window.onSpotifyWebPlaybackSDKReady = () => {
-    const player = new window.Spotify.Player({
-      name: "Web Playback SDK Quick Start Player",
-      getOAuthToken: (cb) => {
-        cb(token);
-      },
-    });
+  const [count, setCount] = useState(0);
 
-    // Error handling
-    player.addListener("initialization_error", ({ message }) => {
-      console.error(message);
-    });
-    player.addListener("authentication_error", ({ message }) => {
-      console.error(message);
-    });
-    player.addListener("account_error", ({ message }) => {
-      console.error(message);
-    });
-    player.addListener("playback_error", ({ message }) => {
-      console.error(message);
-    });
+  function play() {
+    s.togglePlay();
+  }
 
-    // Playback status updates
-    player.addListener("player_state_changed", (state) => {
-      console.log(state);
-    });
+  function incrementCount() {
+    // setCount(prevCount => prevCount + 1);
+    setCount(count + 1);
+  }
 
-    // Ready
-    player.addListener("ready", ({ device_id }) => {
-      console.log("Ready with Device ID", device_id);
-    });
-
-    // Not Ready
-    player.addListener("not_ready", ({ device_id }) => {
-      console.log("Device ID has gone offline", device_id);
-    });
-
-    // Connect to the player!
-    player.connect();
-  };
-  return <div>this is the spotify player</div>;
+  return (
+    <div>
+      this is the spotify player
+      <button onClick={play}>play</button>
+      <button onClick={incrementCount}> + </button>
+      <span>{count}</span>
+    </div>
+  );
 }
