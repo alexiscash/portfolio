@@ -12,7 +12,11 @@ code {
     monospace;
 }
 
-.p5Container {
+.app-container {
+  display: flex;
+}
+
+.p5-container {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -26,7 +30,7 @@ code {
   );
 }
 
-.p5Content {
+.p5-content {
   position: absolute;
   left: 50%;
   top: 50%;

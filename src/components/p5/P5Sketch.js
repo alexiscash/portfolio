@@ -12,8 +12,8 @@ export default function P5Sketch() {
   console.log("hey get out of here you scoundrel!");
 
   return (
-    <div className={"p5Container"}>
-      <div className={"p5Content"} ref={p5Ref}></div>
+    <div className={"p5-container"}>
+      <div className={"p5-content"} ref={p5Ref}></div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import SpotifyPlayer from "./components/spotify/SpotifyPlayer";
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       {/* <ConstructionContainer /> */}
       <SpotifyPlayer />
     </div>
