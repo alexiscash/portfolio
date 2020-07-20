@@ -21,14 +21,6 @@ export default class SpotifyWrapper {
   getAccessToken() {
     const client_id = "dfed05bef549423598ac5ecaebbdd4a7"; // Your client id
     const redirect_uri = "http://localhost:3000"; // Your redirect uri
-    // if (
-    //   location.hostname === "localhost" ||
-    //   location.hostname === "127.0.0.1"
-    // ) {
-    //   var redirect_uri = "http://localhost:3000";
-    // } else {
-    //   var redirect_uri = "https://alexisrangel.netlify.app"; // or whatever
-    // }
     const state = generateRandomString(16);
     const stateKey = "spotify_auth_state";
 
@@ -47,8 +39,6 @@ export default class SpotifyWrapper {
     this.access_token = access_token;
     console.log(access_token);
     localStorage.setItem("spotify_access_token", access_token);
-    // window.location = "http://localhost:3000";
-    // return getHashParams().access_token;
   }
 
   createPlayer() {
@@ -102,7 +92,7 @@ export default class SpotifyWrapper {
   }
 
   togglePlay() {
-    this.player.togglePlay();
+    if (this.player) this.player.togglePlay();
   }
 
   getCurrentTrack() {
@@ -124,6 +114,11 @@ export default class SpotifyWrapper {
   }
 
   playDopePlaylist() {
+    const access_token = localStorage.getItem("spotify_access_token");
+    if (!access_token || access_token === "undefined") {
+      console.log("invalid token");
+      return;
+    }
     const playlistURI = "spotify:track:";
     fetch(
       `https://api.spotify.com/v1/me/player/play?device_id=${this.device_id}`,
@@ -142,6 +137,8 @@ export default class SpotifyWrapper {
       .then(console.log);
   }
 }
+
+// end class
 
 function generateRandomString(length) {
   var text = "";
