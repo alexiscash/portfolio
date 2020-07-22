@@ -39,7 +39,7 @@ export default function sketch(p) {
   p.windowResized = function () {
     p.resizeCanvas(div.clientWidth, div.clientHeight);
     setOffset();
-    // console.log(div.clientWidth);
+    console.log(div.clientWidth);
   };
 
   p.draw = function () {

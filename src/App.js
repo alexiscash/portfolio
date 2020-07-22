@@ -5,11 +5,11 @@ import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
-    <div className="app-container">
+    <>
       {/* <ConstructionContainer /> */}
       {/* <SpotifyPlayer /> */}
       <LandingPage />
-    </div>
+    </>
   );
 }
 
