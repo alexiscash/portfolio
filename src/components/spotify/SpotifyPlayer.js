@@ -1,47 +1,48 @@
 import React from "react";
-import { token } from "./secrets";
+import SpotifyWrapper from "./spotifyWrapper";
+
+const s = new SpotifyWrapper("Super Dope Playback");
 
 export default function SpotifyPlayer() {
-  window.onSpotifyWebPlaybackSDKReady = () => {
-    const player = new window.Spotify.Player({
-      name: "Web Playback SDK Quick Start Player",
-      getOAuthToken: (cb) => {
-        // code for getting fresh access token
-        cb(token);
-      },
-    });
+  function play() {
+    s.togglePlay();
+  }
 
-    // Error handling
-    player.addListener("initialization_error", ({ message }) => {
-      console.error(message);
-    });
-    player.addListener("authentication_error", ({ message }) => {
-      console.error(message);
-    });
-    player.addListener("account_error", ({ message }) => {
-      console.error(message);
-    });
-    player.addListener("playback_error", ({ message }) => {
-      console.error(message);
-    });
+  function handleClick() {
+    s.getAccessToken();
+    s.connect();
+  }
 
-    // Playback status updates
-    player.addListener("player_state_changed", (state) => {
-      console.log(state);
-    });
+  function playPlaylist() {
+    s.playTrack();
+  }
 
-    // Ready
-    player.addListener("ready", ({ device_id }) => {
-      console.log("Ready with Device ID", device_id);
-    });
+  function getCurrentTrack() {
+    s.getCurrentTrack();
+  }
 
-    // Not Ready
-    player.addListener("not_ready", ({ device_id }) => {
-      console.log("Device ID has gone offline", device_id);
-    });
-
-    // Connect to the player!
-    player.connect();
-  };
-  return <div>this is the spotify player</div>;
+  return (
+    <div>
+      this is the spotify player
+      <button onClick={play}>play</button>
+      <button onClick={playPlaylist}>play playlist</button>
+      <button onClick={getCurrentTrack}>get track</button>
+      {/* <div>token: {token}</div> */}
+      <div>
+        <button onClick={handleClick}>login</button>
+      </div>
+      <div>
+        {/* https://open.spotify.com/playlist/1DyAQgCFKWCDn75xzvUpQL?si=58rFR9rzS0imI4ZdLqtb8A */}
+        <iframe
+          src="https://open.spotify.com/embed/playlist/1DyAQgCFKWCDn75xzvUpQL"
+          width="300"
+          height="380"
+          frameBorder="0"
+          title="super swag"
+          allowtransparency="true"
+          allow="encrypted-media"
+        ></iframe>
+      </div>
+    </div>
+  );
 }

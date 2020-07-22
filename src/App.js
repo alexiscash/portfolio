@@ -1,13 +1,15 @@
 import React from "react";
-import P5Sketch from "./components/p5/P5Sketch";
+// import ConstructionContainer from "./containers/ConstructionContainer";
 // import SpotifyPlayer from "./components/spotify/SpotifyPlayer";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
-    <div>
-      <P5Sketch />
+    <>
+      {/* <ConstructionContainer /> */}
       {/* <SpotifyPlayer /> */}
-    </div>
+      <LandingPage />
+    </>
   );
 }
 

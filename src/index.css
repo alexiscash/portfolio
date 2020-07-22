@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.p5Container {
+.p5-container {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -26,7 +26,7 @@ code {
   );
 }
 
-.p5Content {
+.p5-content {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -38,8 +38,26 @@ code {
   border-color: rgb(218, 184, 199);
 }
 
+.landing-page-background {
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+  text-align: center;
+  flex-direction: column;
+  background-image: radial-gradient(
+      circle,
+      rgba(238, 174, 202, 0.52) 0%,
+      rgba(148, 187, 233, 0.73) 100%
+    ),
+    url("images/background.jpg");
+  /* background-image: url("images/background.jpg"); */
+  width: 1000px;
+  height: 600px;
+  color: white;
+}
+
 @media screen and (max-width: 600px) {
-  .p5Content {
+  .p5-content {
     position: absolute;
     left: 50%;
     top: 50%;

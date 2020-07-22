@@ -26,7 +26,8 @@ export default function sketch(p) {
   p.setup = function () {
     // p.createCanvas(600, 400);
     // p.createCanvas(p.windowWidth, p.windowHeight);
-    div = document.querySelector(".p5Content");
+    div = document.querySelector(".p5-content");
+    // div = document.querySelector(".p5Content");
     p.createCanvas(div.clientWidth, div.clientHeight);
     current = p.createVector(0, 0);
     previous = p.createVector(0, 0);
@@ -38,7 +39,7 @@ export default function sketch(p) {
   p.windowResized = function () {
     p.resizeCanvas(div.clientWidth, div.clientHeight);
     setOffset();
-    // console.log(div.clientWidth);
+    console.log(div.clientWidth);
   };
 
   p.draw = function () {
