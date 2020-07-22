@@ -54,6 +54,7 @@ code {
   width: 1000px;
   height: 600px;
   color: white;
+  font-size: 42px;
 }
 
 @media screen and (max-width: 600px) {
