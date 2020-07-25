@@ -5,7 +5,6 @@ export default class SpotifyWrapper {
     this.name = name;
     this.device_id = "";
     this.player = {};
-    // this.access_token = "";
     this.connect();
   }
 
@@ -25,9 +24,9 @@ export default class SpotifyWrapper {
     const stateKey = "spotify_auth_state";
 
     localStorage.setItem(stateKey, state);
-    var scope = "streaming user-read-private user-read-email";
+    const scope = "streaming user-read-private user-read-email";
 
-    var url = "https://accounts.spotify.com/authorize";
+    let url = "https://accounts.spotify.com/authorize";
     url += "?response_type=token";
     url += "&client_id=" + encodeURIComponent(client_id);
     url += "&scope=" + encodeURIComponent(scope);
@@ -36,7 +35,6 @@ export default class SpotifyWrapper {
 
     window.location = url;
     const access_token = getHashParams().access_token;
-    this.access_token = access_token;
     console.log(access_token);
     localStorage.setItem("spotify_access_token", access_token);
   }
@@ -92,7 +90,12 @@ export default class SpotifyWrapper {
   }
 
   togglePlay() {
-    if (this.player) this.player.togglePlay();
+    const token = localStorage.getItem("spotify_access_token");
+    if (token) {
+      this.player.togglePlay();
+    } else {
+      console.log("no access token bruh");
+    }
   }
 
   getCurrentTrack() {

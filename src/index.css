@@ -41,20 +41,46 @@ code {
 .landing-page-background {
   display: flex;
   justify-content: center;
-  /* align-content: center; */
   text-align: center;
   flex-direction: column;
-  background-image: radial-gradient(
+  background: radial-gradient(
       circle,
       rgba(238, 174, 202, 0.52) 0%,
       rgba(148, 187, 233, 0.73) 100%
     ),
     url("images/background.jpg");
-  /* background-image: url("images/background.jpg"); */
-  width: 1000px;
-  height: 600px;
+  background-size: cover;
+  height: 100vh;
   color: white;
-  font-size: 42px;
+  font-size: 4em;
+  font-family: "Roboto", sans-serif;
+}
+
+a.link {
+  color: white;
+  font-size: 0.8em;
+  border: 10px;
+  border-color: white;
+}
+
+a.link:hover {
+  color: blue;
+}
+
+nav {
+  position: sticky;
+  top: 0px;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  height: 5em;
+}
+
+nav > a {
+  color: blue;
+  flex: 1;
 }
 
 @media screen and (max-width: 600px) {

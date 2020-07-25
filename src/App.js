@@ -1,14 +1,15 @@
 import React from "react";
-// import ConstructionContainer from "./containers/ConstructionContainer";
-// import SpotifyPlayer from "./components/spotify/SpotifyPlayer";
 import LandingPage from "./components/LandingPage";
+import SpotifyPlayer from "./components/spotify/SpotifyPlayer";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <>
-      {/* <ConstructionContainer /> */}
-      {/* <SpotifyPlayer /> */}
       <LandingPage />
+      <NavBar />
+      <SpotifyPlayer />
+      <div style={{ height: "1000px" }}>ayy lmao</div>
     </>
   );
 }

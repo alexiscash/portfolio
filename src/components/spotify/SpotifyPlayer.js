@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import SpotifyWrapper from "./spotifyWrapper";
 
 const s = new SpotifyWrapper("Super Dope Playback");
 
 export default function SpotifyPlayer() {
+  const [errorContent, setErrorContent] = useState("");
+
   function play() {
     s.togglePlay();
   }
@@ -22,7 +24,8 @@ export default function SpotifyPlayer() {
   }
 
   return (
-    <div>
+    <div id="link">
+      <div className="error">{errorContent}</div>
       this is the spotify player
       <button onClick={play}>play</button>
       <button onClick={playPlaylist}>play playlist</button>
@@ -32,7 +35,6 @@ export default function SpotifyPlayer() {
         <button onClick={handleClick}>login</button>
       </div>
       <div>
-        {/* https://open.spotify.com/playlist/1DyAQgCFKWCDn75xzvUpQL?si=58rFR9rzS0imI4ZdLqtb8A */}
         <iframe
           src="https://open.spotify.com/embed/playlist/1DyAQgCFKWCDn75xzvUpQL"
           width="300"
