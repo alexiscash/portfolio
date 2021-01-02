@@ -2,10 +2,10 @@ import React from "react";
 
 export default function NavBar() {
   return (
-    <nav>
-      <a href="">home</a>
-      <a href="">something</a>
-      <a href="">something else</a>
+    <nav id="link">
+      <a href="#top">home</a>
+      <a href="#top">something</a>
+      <a href="#top">something else</a>
     </nav>
   );
 }

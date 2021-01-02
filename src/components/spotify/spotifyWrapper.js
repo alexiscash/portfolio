@@ -6,6 +6,7 @@ export default class SpotifyWrapper {
     this.device_id = "";
     this.player = {};
     this.connect();
+    this.currentTrack = "Nothing";
   }
 
   connect() {
@@ -66,7 +67,8 @@ export default class SpotifyWrapper {
       this.player.addListener(
         "player_state_changed",
         ({ position, duration, track_window: { current_track } }) => {
-          console.log("Currently Playing", current_track.name);
+          // console.log("Currently Playing", current_track.name);
+          this.currentTrack = current_track.name;
           // console.log("Position in Song", position);
           // console.log("Duration of Song", duration);
         }
