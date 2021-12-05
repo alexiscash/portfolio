@@ -1,4 +1,4 @@
-const p5 = require("p5");
+const p5 = require('p5');
 
 export default function sketch(p) {
   let paths = [];
@@ -24,12 +24,12 @@ export default function sketch(p) {
   }
 
   p.setup = function () {
-    div = document.querySelector(".p5-content");
+    div = document.querySelector('.p5-content');
     p.createCanvas(div.clientWidth, div.clientHeight);
     current = p.createVector(0, 0);
     previous = p.createVector(0, 0);
-    string1 = "this website is currently under constuction :(";
-    string2 = "try clicking and dragging across the screen";
+    string1 = 'this website is currently under construction :(';
+    string2 = 'try clicking and dragging across the screen';
     setOffset();
   };
 
