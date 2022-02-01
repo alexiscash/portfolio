@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import classnames from 'classnames';
+import classNames from 'classnames';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -11,8 +11,9 @@ import Parallax from 'components/Parallax/Parallax.js';
 import GridContainer from 'components/Grid/GridContainer.js';
 import GridItem from 'components/Grid/GridItem.js';
 
-import styles from 'assets/jss/material-kit-react/views/landingPage.js';
+import styles from 'assets/jss/material-kit-react/views/profilePage';
 import image from 'assets/img/landing-bg.jpg';
+import profile from 'assets/img/faces/prof_pic.jpg';
 
 const dashboardRoutes = [];
 
@@ -21,8 +22,14 @@ const useStyles = makeStyles(styles);
 export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+  const imageClasses = classNames(
+    classes.imgRaised,
+    classes.imgRoundedCircle,
+    classes.imgFluid
+  );
+
   return (
-    <>
+    <div>
       <Header
         color="transparent"
         routes={dashboardRoutes}
@@ -42,7 +49,26 @@ export default function LandingPage(props) {
           </GridContainer>
         </div>
       </Parallax>
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <div>
+          <div className={classes.container}>
+            <GridContainer justify="center">
+              <GridItem xs={12} sm={12} md={6}>
+                <div className={classes.profile}>
+                  <div>
+                    <img src={profile} alt="..." className={imageClasses} />
+                  </div>
+                  <div className={classes.name}>
+                    <h3 className={classes.title}>Christian Louboutin</h3>
+                    <h6>DESIGNER</h6>
+                  </div>
+                </div>
+              </GridItem>
+            </GridContainer>
+          </div>
+        </div>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
