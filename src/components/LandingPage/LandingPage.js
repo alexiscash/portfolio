@@ -60,7 +60,7 @@ export default function LandingPage(props) {
                   </div>
                   <div className={classes.name}>
                     <h3 className={classes.title}>Christian Louboutin</h3>
-                    <h6>DESIGNER</h6>
+                    <h6>I MAKE COOL STUFF</h6>
                   </div>
                 </div>
               </GridItem>
