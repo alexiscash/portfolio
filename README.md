@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 create-react-app is no longer supported and should not be used by developers to... create react apps.
 
-The official docs recommend using something like Next.js, Remix, or Gatsby. You can learn more about it [here] (https://react.dev/learn/start-a-new-react-project)
+The official React docs recommend using something like Next.js, Remix, or Gatsby. You can learn more about it [here](https://react.dev/learn/start-a-new-react-project)
 
 I'm not sure which one I want to use yet, but I'll be sure to put it on the hub
 
