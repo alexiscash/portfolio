@@ -9,9 +9,9 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "classnames": "^2.3.1",
+    "dart-sass": "^1.25.0",
     "history": "^5.1.0",
     "moment": "^2.29.1",
-    "node-sass": "^4.0.0",
     "nouislider": "^15.5.0",
     "p5": "^1.0.0",
     "prop-types": "^15.7.2",
@@ -19,7 +19,7 @@
     "react-datetime": "^3.0.4",
     "react-dom": "^16.13.1",
     "react-router-dom": "^6.0.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^5.0.1",
     "react-slick": "^0.28.1"
   },
   "scripts": {
