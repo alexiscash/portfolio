@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import ConstructionContainer from './containers/ConstructionContainer';
+import ConstructionContainer from 'containers/ConstructionContainer.js';
 
 import 'assets/scss/material-kit-react.scss?v=1.10.0';
 
@@ -20,6 +20,7 @@ export default function App() {
       <Router history={hist}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<ConstructionContainer />} />
         </Routes>
       </Router>
       {/* <Router history={hist}>
